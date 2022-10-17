@@ -1,7 +1,25 @@
-<cfoutput>#mid(cgi.script_name,2,5)#</cfoutput>
+<cfset shortenedURL = "">
+<cfset start = 0>
+<cfloop from="1" to="#len(cgi.script_name)#" index="x">
+    <cfif mid(cgi.script_name,x,1) is "/">
+        <cfset start = start + 1>
+    </cfif>
+    <cfif start is 1>
+        <cfset shortenedURL = shortenedURL & mid(cgi.script_name,x,1)> 
+    </cfif>
+    <cfif start is 2>
+        <cfbreak>
+    </cfif>
+</cfloop>
 
-<!---   extract shortened url from addressbar URL   --->
-<cfset shortenedURL = mid(cgi.script_name,2,5)>
+<cfset shortenedURL = mid(shortenedURL,2,len(shortenedURL) - 1)>
+
+<cfoutput>
+    #cgi.script_name#<br>
+    #shortenedURL#
+</cfoutput>
+
+
 
 <!---   fetch the url from db   --->
 <cfquery name="getURL" datasource="#application.datasource#">

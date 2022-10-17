@@ -35,7 +35,7 @@
             "port":"3306",
             "storage":"false",
             "username":"root",
-            "validate":"false"
+            "validate":"true"
         }
     },
     "debuggingEnabled":"no",

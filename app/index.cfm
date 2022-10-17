@@ -194,9 +194,10 @@
         <br>
     </cfoutput>
     </p>
+<cfelse>
+    <!---   serialize to JSON format our outputStruct variable   --->
+    <cfoutput>#SerializeJSON(outputStruct)#</cfoutput>
 </cfif>
 
 
 
-<!---   serialize to JSON format our outputStruct variable   --->
-<cfoutput>#SerializeJSON(outputStruct)#</cfoutput>
