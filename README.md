@@ -28,7 +28,7 @@ Will return:
 
  Visiting http://localhost/8ffde will redirect you to https://google.com
 
-To set your own shortened URL this system will accept the url parameter "customurl" which will allow the user to set their own desired shortened URL supporting up to 20 charactors. 
+To set your own shortened URL this system will accept the url parameter "customurl" which will allow the user to set their own desired shortened URL supporting up to 20 characters. 
 
 Example: 
 http://localhost/?add=http://google.com&customurl=goo 
