@@ -1,3 +1,5 @@
+<!--- set variable to control host name --->
+<cfset hostnamevar = "localhost">
 <!---   Init output struct   --->
 <cfset outputStruct = StructNew("Ordered")>
 
@@ -90,7 +92,7 @@
     <cfelse>
         <!--- if no error exists we set the "URL" struct element by combining our host
         address with the new shortned url string   --->
-        <cfset outputStruct.URL = "http://localhost/" & shortenedURL>
+        <cfset outputStruct.URL = "http://#hostnamevar#/" & shortenedURL>
     </cfif>
 
     
