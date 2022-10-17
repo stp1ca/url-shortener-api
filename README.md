@@ -16,6 +16,8 @@ NOTE: You may need to wait up to 2 minutes for the containers to be ready.
 
 The command  'docker-compose down' will bring down servers when you are finished using the application.
 
+
+
 ## Usage
 
 Example: 

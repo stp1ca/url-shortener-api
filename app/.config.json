@@ -28,7 +28,7 @@
             "database":"appdatabase",
             "dbdriver":"MySQL",
             "dsn":"jdbc:mysql://{host}:{port}/{database}",
-            "host":"url-shortener-api-main-appdb-1",
+            "host":"databasehost",
             "liveTimeout":"15",
             "metaCacheTimeout":"60000",
             "password":"changeme",
