@@ -1,7 +1,7 @@
 # url-shortener-api 
 By Stephen P (stp@stp1.ca)
 
-# Description
+## Description
 This is a docker image containing a URL Shortener api service written in CFML and using MySQL as the database. 
 
 You can pass it a URL and it will return a json containing the shortened URL back. 
