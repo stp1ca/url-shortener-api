@@ -2,16 +2,18 @@ version: '3.1'
 services:
   web:
     image: ortussolutions/commandbox:lucee5
+    container_name: luceeweb
     ports:
      - "80:8080"
     volumes:
       - ./app:/app
     environment:
       BOX_SERVER_CFCONFIGFILE : .config.json
-    links: 
-          - "appdb:databasehost"
+    depends_on:
+      - appdb  
   appdb:
     image: mysql
+    container_name: appdb
     ports:
       - "3306:3306"
     volumes:
