@@ -34,5 +34,5 @@
         update urls set clickcount = <cfqueryparam cfsqltype="cf_sql_int" value="#newcount#">
         where shorturl = <cfqueryparam cfsqltype="cf_sql_varchar" value="#shortenedURL#">
     </cfquery>
-    <cflocation url="#getURL.url#">
+    <cflocation url="#getURL.url#" addToken="No">
 </cfif>
