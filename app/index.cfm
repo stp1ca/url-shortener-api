@@ -90,7 +90,7 @@
     <cfelse>
         <!--- if no error exists we set the "URL" struct element by combining our host
         address with the new shortned url string   --->
-        <cfset outputStruct.URL = "http://localhost:8080/" & shortenedURL>
+        <cfset outputStruct.URL = "http://localhost/" & shortenedURL>
     </cfif>
 
     
