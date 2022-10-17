@@ -1,5 +1,6 @@
 <!--- set variable to control host name --->
 <cfset hostnamevar = "localhost">
+
 <!---   Init output struct   --->
 <cfset outputStruct = StructNew("Ordered")>
 
@@ -154,8 +155,46 @@
 
 
 
+<!--- If neither add or remove parameters are set we give a default message showing usage  --->
+<cfif not isdefined("url.add") and not isdefined("url.remove")>
+    <h1>Welcome to the url-shortner-api app</h1>
+    <p>You are seeing this page becuase you have not passed the server any paramters.</p>
+    <p><strong>Usage:</strong>
+    <br>Example: 
+    <br>Set a new shortened URL
+    <br>
+    <cfoutput>
+        http://#hostnamevar#/?add=http://google.com
+        <br>
+        Will return:
+        <br>{"URL":"http://#hostnamevar#/8ffde"} 
+        <br><br>
+        Visiting http://#hostnamevar#/8ffde will redirect you to https://google.com
+        <br><br>
+        To set your own shortened URL this system will accept the url parameter "customurl" which will allow the user to set their own desired shortened URL supporting up to 20 characters. 
+        <br>
+        Example: <br>
+        http://#hostnamevar#/?add=http://google.com&customurl=goo 
+        <br><br>
+        Will return: <br>
+        {"URL":"http://#hostnamevar#/goo"} <br>
+        <br>
 
-
+        To remove a URL from the system you can use parameter "remove"
+        <br><br>
+        Example removal: <br>
+        http://#hostnamevar#/?remove=8ffde will remove the item returning: 
+        <br><br>
+        {"SUCCESS":"Removed: 8ffde"} 
+        <br><br>
+        Statistics are kept for all redirects. To view statistics you can visit:<br> 
+        http://#hostnamevar#/stats/<br>
+        <br>
+        Note: Statistics are returned as json.
+        <br>
+    </cfoutput>
+    </p>
+</cfif>
 
 
 
