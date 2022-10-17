@@ -1,7 +1,7 @@
-#url-shortener-api 
+# url-shortener-api 
 By Stephen P (stp@stp1.ca)
 
-#Description
+# Description
 This is a docker image containing a URL Shortener api service written in CFML and using MySQL as the database. 
 
 You can pass it a URL and it will return a json containing the shortened URL back. 
@@ -9,14 +9,14 @@ You can pass it a URL and it will return a json containing the shortened URL bac
 Accessing the shortened URL will redirect you to the website of the original URL submitted to be shortened. 
 
 
-#Starting the server
+# Starting the server
 Docker Compose is used for this web application. To start the server you can use your command line tool to navigate to the folder where this project is located and type 'docker-compose up -d' to start up the services. 
 
 NOTE: You may need to wait up to 2 minutes for the containers to be ready. 
 
 The command  'docker-compose down' will bring down servers when you are finished using the application.
 
-#Usage
+# Usage
 
 Example: 
 Set a new shortened URL
