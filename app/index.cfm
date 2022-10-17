@@ -46,7 +46,7 @@
 
             <cfquery name="checkExists" datasource="#application.datasource#">
                 select urlid from urls 
-                where shorturl = <cfqueryparam cfsqltype="varchar" maxlength="5" value="#shortenedURL#">
+                where shorturl = <cfqueryparam cfsqltype="varchar" maxlength="20" value="#shortenedURL#">
             </cfquery>
             <cfif checkExists.recordcount gt 0>
                 <cfset errorOutput = "The custom shortened url you supplied is already in use. Please try another.">
@@ -64,7 +64,7 @@
             so possibility for a collision exists so we do a quick check to make sure   --->
             <cfquery name="checkExists" datasource="#application.datasource#">
                 select urlid from urls 
-                where shorturl = <cfqueryparam cfsqltype="varchar" maxlength="5" value="#shortenedURL#">
+                where shorturl = <cfqueryparam cfsqltype="varchar" maxlength="20" value="#shortenedURL#">
             </cfquery>
             <!---  check query results and if its not 0 we create a new shornedURL variable   --->
             <cfif checkExists.recordcount gt 0>
