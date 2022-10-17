@@ -1,0 +1,20 @@
+version: '3.1'
+services:
+  web:
+    image: ortussolutions/commandbox:lucee5
+    ports:
+     - "8080:80"
+    volumes:
+      - ./app:/app
+    environment:
+      BOX_SERVER_CFCONFIGFILE : .config.json
+  appdb:
+    image: mysql
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./mysql:/var/lib/mysql
+      - ./initdata.sql:/docker-entrypoint-initdb.d/initdata.sql 
+    environment:
+      MYSQL_ROOT_PASSWORD : changeme
+      MYSQL_DATABASE : appdatabase
