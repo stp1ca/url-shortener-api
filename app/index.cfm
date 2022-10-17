@@ -44,6 +44,15 @@
 
             <cfset shortenedURL = url.customurl>
 
+            <cfquery name="checkExists" datasource="#application.datasource#">
+                select urlid from urls 
+                where shorturl = <cfqueryparam cfsqltype="varchar" maxlength="5" value="#shortenedURL#">
+            </cfquery>
+            <cfif checkExists.recordcount gt 0>
+                <cfset errorOutput = "The custom shortened url you supplied is already in use. Please try another.">
+            </cfif>
+
+
     <cfelse>
             <!---   create a 5 char string to use as shortened url. 
             In this case i'm utilizing the hash() function and grabbing 
