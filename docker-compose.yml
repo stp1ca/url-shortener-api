@@ -13,7 +13,7 @@ services:
       - appdb  
   appdb:
     #platform: linux/x86_64
-    image: mysql/mysql-server:latest-aarch64 #use either 'mysql' or 'arm64v8/mysql:oracle' for apple silicon
+    image: mysql #use either 'mysql' or 'arm64v8/mysql:oracle' for apple silicon or mysql/mysql-server:latest-aarch64
     container_name: appdb
     ports:
       - "3306:3306"
