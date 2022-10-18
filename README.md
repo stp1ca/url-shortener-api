@@ -18,12 +18,14 @@ NOTE: You may need to wait up to 5 minutes for the containers to be ready.
 
 The command  'docker-compose down' will bring down servers when you are finished using the application.
 
-##Troubleshooting
+## Troubleshooting
 
 Its important to note, that this application by default is using Ports 80 and 3306. If you have any existing services running on those ports the application will fail. You MUST stop all services on those ports before you begin using this application. Or you can edit the docker-compose.yml file to customize the port settings. 
 
 ## Usage
 
+
+### Create A New Shortened URL
 Example: 
 Set a new shortened URL
 
@@ -32,7 +34,9 @@ http://localhost/?add=http://google.com
 Will return:
  {"URL":"http://localhost/8ffde"} 
 
- Visiting http://localhost/8ffde will redirect you to https://google.com
+Visiting http://localhost/8ffde will redirect you to https://google.com
+
+### Set a Custom URL of user's choice
 
 To set your own shortened URL this system will accept the url parameter "customurl" which will allow the user to set their own desired shortened URL supporting up to 20 characters. 
 
@@ -42,13 +46,15 @@ http://localhost/?add=http://google.com&customurl=goo
 Will return: 
 {"URL":"http://localhost/goo"} 
 
-
+### Remove A URL from the system
  To remove a URL from the system you can use parameter "remove"
 
  Example removal: 
  http://localhost/?remove=8ffde will remove the item returning: 
 
 {"SUCCESS":"Removed: 8ffde"} 
+
+### View statistics of URLs redirected from the application
 
 Statistics are kept for all redirects. To view statistics you can visit: 
 http://localhost/stats/
