@@ -89,11 +89,16 @@
         <!---  Lucee does not handle missing folders well so we create a folder 
         with the name of the shortneed url in it and copy in
         a template which will serve as the index.cfm of the new folder    --->
-        <cfdirectory action="create" directory="#shortenedURL#">
-        <cfset destVar =  "./" & shortenedURL & "/index.cfm">
-        <cffile action = "copy" 
+        <cfif not directoryExists("./" & shortenedURL)>
+            <cfdirectory action="create" directory="#shortenedURL#">
+            <cfset destVar =  "./" & shortenedURL & "/index.cfm">
+            <cffile action = "copy" 
             source = "_redirect-template.cfm" 
             destination = "#destvar#">
+        </cfif>
+        
+        
+        
     </cfif>
   
     <!---  if an error does exist we create the "Error" struct element   --->
@@ -145,6 +150,7 @@
                     
                     <!---  remove file and dir   --->
                     <cffile action = "delete" file="./#url.remove#/index.cfm"> 
+
                     <cfdirectory action = "delete" directory = "#url.remove#"> 
                     
                     <!---  remove db record   --->

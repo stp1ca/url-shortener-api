@@ -18,7 +18,9 @@ NOTE: You may need to wait up to 5 minutes for the containers to be ready.
 
 The command  'docker-compose down' will bring down servers when you are finished using the application.
 
+##Troubleshooting
 
+Its important to note, that this application by default is using Ports 80 and 3306. If you have any existing services running on those ports the application will fail. You MUST stop all services on those ports before you begin using this application. Or you can edit the docker-compose.yml file to customize the port settings. 
 
 ## Usage
 
