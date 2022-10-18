@@ -2,8 +2,23 @@
 	displayname="Application"
 	output="true"
 	hint="Handle the application.">
-
-
+	<cfscript>
+		this.datasources["appdatabase"] = {
+			class: 'com.mysql.cj.jdbc.Driver'
+			, bundleName: 'com.mysql.cj'
+			, bundleVersion: '8.0.19'
+			, connectionString: 'jdbc:mysql://appdb:3306/appdatabase?characterEncoding=UTF-8&serverTimezone=America/Vancouver&maxReconnects=3'
+			, username: 'root'
+			, password: "encrypted:b8f1c97924a3bf896be9d7c322fc1094c43a423071ba1cc3e30b459890173ba2"
+			
+			// optional settings
+			, connectionLimit:100 // default:-1
+			, liveTimeout:15 // default: -1; unit: minutes
+			, alwaysSetTimeout:true // default: false
+			, validate:true // default: false
+  		};
+	</cfscript>	 
+	
 	<!--- Set up the application. --->
 	<cfset THIS.Name = "URLShortenerAPI" />
 	<cfset THIS.ApplicationTimeout = CreateTimeSpan( 0, 0, 1, 0 ) />
@@ -26,7 +41,7 @@
 		returntype="boolean"
 		output="false"
 		hint="Fires when the application is first created.">
-            <cfset application.datasource = "db">
+            <cfset application.datasource = "appdatabase">
 
 		<!--- Return out. --->
 		<cfreturn true />

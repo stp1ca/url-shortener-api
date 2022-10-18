@@ -9,17 +9,24 @@ services:
       - ./app:/app
     environment:
       BOX_SERVER_CFCONFIGFILE : .config.json
+    networks:
+      - custom-net
     depends_on:
       - appdb  
   appdb:
     #platform: linux/x86_64
-    image: mysql #use either 'mysql' or 'arm64v8/mysql:oracle' for apple silicon or mysql/mysql-server:latest-aarch64
+    image: mysql
     container_name: appdb
     ports:
       - "3306:3306"
     volumes:
       - ./mysql:/var/lib/mysql
-      - ./initdata.sql:/docker-entrypoint-initdb.d/initdata.sql 
+      - ./initdata.sql:/docker-entrypoint-initdb.d/initdata.sql
     environment:
       MYSQL_ROOT_PASSWORD : changeme
       MYSQL_DATABASE : appdatabase
+    networks:
+      - custom-net
+
+networks:
+  custom-net:
